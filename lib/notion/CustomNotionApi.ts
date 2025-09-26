@@ -54,12 +54,12 @@ async function postNotion(
     children
   }
 
-  const headers = {
-    accept: 'application/json',
-    'Notion-Version': '2022-06-28',
-    'content-type': 'application/json',
-    Authorization: `Bearer ${token}`
-  }
+ // 在lib/notion.js或类似文件中
+const headers = {
+  'Authorization': `Bearer ${process.env.NOTION_TOKEN}`,
+  'Notion-Version': '2025-09-03', // 必须使用新版本
+  'Content-Type': 'application/json'
+}
 
   try {
     const response = await axios.post(url, payload, { headers })
